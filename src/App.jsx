@@ -8,6 +8,14 @@ function App() {
   const [sliderValue, setSliderValue] = useState(50);
   const [isYearly, setIsYearly] = useState(false);
 
+  const getViewsText = (val) => {
+    if (val < 20) return "10K";
+    if (val < 40) return "50K";
+    if (val < 60) return "100K";
+    if (val < 80) return "500K";
+    return "1M";
+  };
+
   return (
     <section className="w-full flex flex-col items-center relative bg-slate-50 min-h-screen overflow-hidden">
       <img
@@ -35,7 +43,7 @@ function App() {
         <div className="max-w-[640px] w-full md:h-auto -mt-30 md:-mt-25 bg-white p-8  flex flex-col rounded-xl justify-center items-center top-80">
           <div className="flex flex-col text-center w-full">
             <h2 className="mb-8 text-lg md:text-2xl font-bold text-slate-500 tracking-widest">
-              100k pageviews
+              {getViewsText(sliderValue)} pageviews
             </h2>
             <div className="relative w-full h-10 flex items-center">
               <div className="absolute w-full h-2 bg-slate-200 rounded-full"></div>
